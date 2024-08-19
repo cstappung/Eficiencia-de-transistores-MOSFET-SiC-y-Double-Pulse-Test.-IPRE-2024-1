@@ -3,8 +3,14 @@ Esta investigación aborda la obtención de perdidas en transistores MOSFET de c
 
 # Contenido de cada Archivo
 
-## Arh1
+### ```README.md```
 
-### Arh2
+### ```README.md```
 
-#### Arh3
+### ```README.md```
+
+### ```README.md```
+
+### ```README.md```
+
+### ```README.md```
