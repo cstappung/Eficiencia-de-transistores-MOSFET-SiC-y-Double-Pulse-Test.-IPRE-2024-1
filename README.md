@@ -4,8 +4,13 @@ Esta investigación aborda la obtención de perdidas en transistores MOSFET de c
 # Contenido de cada Archivo
 
 ### ```00_Presentaciones```
+Carpeta que contiene tres presentaciones.
+1.- Presentación DPT.
+2.- Presentación Perdidas de fabricantes.
+3.- Presentación Final Ipre.
 
 ### ```01_Perdidas con Modelos```
+Carpeta con simulaciones con modelos de los fabricantes.
 
 ### ```02_Perdidas con DataSheet```
 
