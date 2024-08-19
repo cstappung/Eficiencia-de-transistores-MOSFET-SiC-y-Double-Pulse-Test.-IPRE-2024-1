@@ -3,14 +3,26 @@ Esta investigación aborda la obtención de perdidas en transistores MOSFET de c
 
 # Contenido de cada Archivo
 
-### ```README.md```
+### ```00_Presentaciones```
 
-### ```README.md```
+### ```01_Perdidas con Modelos```
 
-### ```README.md```
+### ```02_Perdidas con DataSheet```
 
-### ```README.md```
+### ```03_Series de tiempo DPT y Script```
 
-### ```README.md```
+### ```04_Codigo_Heater_Arduino```
 
-### ```README.md```
+### ```05_Varios```
+
+### ```06_Codigo_DTP_Composer.zip```
+
+### ```07_Informe_Latex_Final.pdf```
+
+### ```08_Proyecto_Latex_Informe.zip```
+
+### ```09_Informe_Dipre_Stappung.docx```
+
+### ```10_DATOS Y CALCULOS.xlsx```
+
+### ```11_Tareas IPRE Carlos.pdf```
