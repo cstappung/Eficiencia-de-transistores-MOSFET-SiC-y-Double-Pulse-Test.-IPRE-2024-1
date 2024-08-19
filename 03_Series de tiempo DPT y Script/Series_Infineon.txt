@@ -1,0 +1,6 @@
+Perdidas por encendido (Eon): 5.51e-04
+Perdidas por apagado (Eoff): 4.98e-05
+Rise Time: 6.62e-08
+Fall Time: 4.30e-08
+Per. por segundo prendido: 1.38e+01
+Per. por segundo apgado: 1.25e+00

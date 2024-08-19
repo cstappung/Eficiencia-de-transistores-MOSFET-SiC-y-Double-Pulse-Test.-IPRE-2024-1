@@ -1,0 +1,52 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1344,         44]
+NotebookOptionsPosition[       800,         27]
+NotebookOutlinePosition[      1305,         45]
+CellTagsIndexPosition[      1262,         42]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Parametros", "Text",
+ CellChangeTimes->{{3.9208890634541264`*^9, 
+  3.920889066804041*^9}},ExpressionUUID->"624a57fd-5082-4b18-8795-\
+f81117f6ffba"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"ec5fd704-9d29-49de-9103-29490ff2f4b6"]
+},
+WindowSize->{819, 872},
+WindowMargins->{{139, Automatic}, {Automatic, 207}},
+Magnification:>2. Inherited,
+FrontEndVersion->"12.2 para Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"9e1c07eb-cc53-4b2f-9a17-6a9bd1f1127f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 154, 3, 66, "Text",ExpressionUUID->"624a57fd-5082-4b18-8795-f81117f6ffba"],
+Cell[715, 25, 81, 0, 79, "Input",ExpressionUUID->"ec5fd704-9d29-49de-9103-29490ff2f4b6"]
+}
+]
+*)
+

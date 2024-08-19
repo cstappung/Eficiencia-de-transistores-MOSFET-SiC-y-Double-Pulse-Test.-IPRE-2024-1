@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SemiconductorLibrary xmlns="http://www.plexim.com/xml/semiconductors/" version="1.1">
+  <Package class="MOSFET" vendor="UnitedSiC" partnumber="UF3SC120016K3S">
+    <Variables />
+    <SemiconductorData type="MOSFET">
+      <TurnOnLoss>
+        <ComputationMethod>Table only</ComputationMethod>
+        <CurrentAxis>3.5 25.5 47.4 69.4 91.3 113.3 135.2 157.2 179.1 201.1 223.0 245.0</CurrentAxis>
+        <VoltageAxis>0 800.0</VoltageAxis>
+        <TemperatureAxis>-55 25 175</TemperatureAxis>
+        <Energy scale="1e-6">
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>1154.2163532432055 1656.2750767972439 2358.582069322488 3267.5510933077544 4374.918793989539 5690.798118406034 7203.226527244359 8926.016152092083 10843.505269086949 12973.205194365903 15295.75501951731 17832.365245227487</Voltage>
+          </Temperature>
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>1121.01485 1608.6316500000007 2290.736496 3173.5586559999997 4249.0724740000005 5527.099994 6996.022784000001 8669.255664 10531.587426 12600.025666 14855.766400000002 17319.41</Voltage>
+          </Temperature>
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>1156.357601515242 1659.3477209650764 2362.95760062232 3273.6129014884104 4383.034939010019 5701.3554212923655 7216.589616678341 8942.575280376943 10863.621633627281 12997.272478742143 15324.130989856849 17865.447016387963</Voltage>
+          </Temperature>
+        </Energy>
+      </TurnOnLoss>
+      <TurnOffLoss>
+        <ComputationMethod>Table only</ComputationMethod>
+        <CurrentAxis>3.5 25.5 47.4 69.4 91.3 113.3 135.2 157.2 179.1 201.1 223.0 245.0</CurrentAxis>
+        <VoltageAxis>0 800.0</VoltageAxis>
+        <TemperatureAxis>-55 25 175</TemperatureAxis>
+        <Energy scale="1e-6">
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>82.93415039267444 145.0192051894199 300.3787832984356 550.4316936522242 892.9047279748419 1330.9254938856736 1860.511984421893 2486.5006058897675 3203.200552639589 4017.157029664507 4920.9704326279325 5922.894765209891</Voltage>
+          </Temperature>
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>85.225 149.025 308.676 565.6360000000002 917.569 1367.6889999999999 1911.904 2555.184 3291.681 4128.121 5056.9000000000015 6086.5</Voltage>
+          </Temperature>
+          <Temperature>
+            <Voltage>0 0 0 0 0 0 0 0 0 0 0 0</Voltage>
+            <Voltage>86.37606377125843 151.03775774141144 312.8450320992311 573.2755788479852 929.9618475626852 1386.1612470900407 1937.72651016162 2589.6947624675768 3336.139019896037 4183.876124980595 5125.199376765936 6168.705334629094</Voltage>
+          </Temperature>
+        </Energy>
+      </TurnOffLoss>
+      <ConductionLoss>
+        <ComputationMethod>Table only</ComputationMethod>
+        <CurrentAxis>3.5 25.5 47.4 69.4 91.3 113.3 135.2 157.2 179.1 201.1 223.0 245.0</CurrentAxis>
+        <TemperatureAxis>-55 25 175</TemperatureAxis>
+        <VoltageDrop scale="1">
+          <Temperature>0.057259357120000014 0.41717531616 0.775455293568 1.1353712526080002 1.4936512300159999 1.853567189056 2.211847166464 2.571763125504 2.9300431029119998 3.289959061952 3.64823903936 4.008154998399999</Temperature>
+          <Temperature>0.055999999999999994 0.408 0.7584 1.1104 1.4608 1.8128 2.1632 2.5152 2.8656 3.2176 3.568 3.92</Temperature>
+          <Temperature>0.11206053712000001 0.81644105616 1.5176198455680001 2.2220003646079998 2.923179154016 3.627559673056 4.328738462464 5.033118981504 5.734297770912 6.4386782899520005 7.139857079360001 7.844237598399999</Temperature>
+        </VoltageDrop>
+      </ConductionLoss>
+    </SemiconductorData>
+    <ThermalModel>
+      <Branch type="Foster">
+        <RTauElement R="0.0356177550080597" Tau="0.22654258516847683" />
+        <RTauElement R="0.025633919164058272" Tau="0.0009412758209817598" />
+        <RTauElement R="0.06242969030507043" Tau="0.0028799061801234563" />
+        <RTauElement R="0.1779155052094152" Tau="0.011198819971085296" />
+      </Branch>
+    </ThermalModel>
+  </Package>
+</SemiconductorLibrary>

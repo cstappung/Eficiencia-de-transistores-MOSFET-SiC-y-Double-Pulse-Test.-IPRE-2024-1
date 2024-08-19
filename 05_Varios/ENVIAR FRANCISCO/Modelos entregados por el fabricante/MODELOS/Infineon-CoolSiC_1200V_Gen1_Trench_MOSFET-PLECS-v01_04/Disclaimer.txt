@@ -1,0 +1,1 @@
+Only one branch of the common-cathode series configuration of the IDW60C65C1 (30A diode) was tested as high side diode switching with the IGBT IKW30N65EL5.

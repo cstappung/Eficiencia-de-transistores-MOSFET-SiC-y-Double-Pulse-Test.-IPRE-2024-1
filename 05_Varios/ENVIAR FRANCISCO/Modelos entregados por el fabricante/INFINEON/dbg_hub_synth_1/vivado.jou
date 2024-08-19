@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sun Apr 21 14:54:39 2024
+# Process ID: 40920
+# Current directory: d:/Trabajos_UC/9 noveno semestre/SEP/Ayudantia 5/Arcchivos nuevos/AYUD_05/AYUD_05.runs/impl_1/.Xil/Vivado-46276-DESKTOP-A0CU7UE/dc_drv.0/dc/prj_ip.runs/dbg_hub_synth_1
+# Command line: vivado.exe -log dbg_hub.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dbg_hub.tcl
+# Log file: d:/Trabajos_UC/9 noveno semestre/SEP/Ayudantia 5/Arcchivos nuevos/AYUD_05/AYUD_05.runs/impl_1/.Xil/Vivado-46276-DESKTOP-A0CU7UE/dc_drv.0/dc/prj_ip.runs/dbg_hub_synth_1/dbg_hub.vds
+# Journal file: d:/Trabajos_UC/9 noveno semestre/SEP/Ayudantia 5/Arcchivos nuevos/AYUD_05/AYUD_05.runs/impl_1/.Xil/Vivado-46276-DESKTOP-A0CU7UE/dc_drv.0/dc/prj_ip.runs/dbg_hub_synth_1\vivado.jou
+#-----------------------------------------------------------
+source dbg_hub.tcl -notrace

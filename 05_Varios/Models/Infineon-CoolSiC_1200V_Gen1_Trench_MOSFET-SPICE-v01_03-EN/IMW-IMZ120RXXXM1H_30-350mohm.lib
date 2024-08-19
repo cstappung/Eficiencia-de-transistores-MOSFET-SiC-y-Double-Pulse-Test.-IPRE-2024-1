@@ -1,0 +1,518 @@
+*  ********************************************************************************************************************
+*  COPYRIGHT: INFINEON Technologies AG
+*  ********************************************************************************************************************
+*  COMMENT:
+*  - The models for Infineon Power MOSFET are evaluated with                                                          *
+*  - SIMetrixTM-Spice simulator. The Infineon Power MOSFET models                                                     *
+*    are tested, verified and provided in Spice simulation code.                                                      *
+*  ********************************************************************************************************************
+*  ********************************************************************************************************************
+*   INFINEON Power Transistors                                                                                        *
+*   Content:        SPICE Simulation Model Library                                                                    *
+*   Device:         CoolSiC 1200V SiC Trench MOSFET G1                                                                *
+*   Package:        TO247-3 / TO247-4                                                                                 *
+*   Model Types:    L3                                                                                                *
+*   Technology:     1200V                                                                                             *
+*   Date:           2019-09-23                                                                                        *
+*   Version:        1.0                                                                                               *
+*  ********************************************************************************************************************
+*  ****************************************************************
+*   Infineon  | Terminals   |  Usage suggestion                   *
+*   Level     |             |                                     *
+*   ------------------------------------------------------------- *
+*   L3        | DRAIN,      |  Self-heating effects,              *
+*             | GATE,       |  modeling of heat flow              *
+*             | SOURCE,     |  including thermal models of        *
+*             | SOURCESENSE |  TO package.                        *
+*             | Tj, Tcase   |                                     *
+*  ****************************************************************
+*   Detailed Information:                                         *
+*                                                                 *
+*   The model files are available on the Infineon web page:       *
+*   http://www.infineon.com                                       *
+*                                                                 *
+*   This library contains models of the following INFINEON        *
+*   CoolSiC transistors:                                          *
+*                                                                 *
+*   G1 1200V                                                      *
+*        IMW120R0XXM1_L3  PG-TO247-3 3pin                         *
+*        IMZ120R0XXM1_L3  PG-TO247-4 4pin                         *
+*                                                                 *
+*  ********************************************************************************************************************
+*  ********************************************************************************************************************
+* DISCLAIMER
+* 
+* INFINEON’S MODEL TERMS OF USE
+*
+* BY DOWNLOADING AND/OR USING THIS INFINEON MODEL (“MODEL”), THE USER (INCLUDING YOU) AGREES TO BE BOUND BY THE TERMS
+* MODEL BUT OF USE HERE STATED. IF USER DOES NOT AGREE TO ALL TERMS OF USE HERE STATED, USER SHALL NOT DOWNLOAD, USE
+* OR COPY THE IMMEDIATELY DELETE IT (TO THE EXTENT THAT IT WAS DOWNLOADED ALREADY).
+*
+* 1.  SCOPE OF USE
+* 1.1 Any use of this Model provided by Infineon Technologies AG is subject to these Terms of Use.
+* 1.2 This Model, provided by Infineon, does not fully represent all of the specifications and operating
+*     characteristics of the product to which this Model relates.
+* 1.3 This Model only describes the characteristics of a typical product. In all cases, the current data sheet
+*     information for a given product is the final design guideline and the only actual performance specification.
+*     Although this Model can be a useful tool to evaluate the product performance, it cannot simulate the exact
+*     product performance under all conditions and it is also not intended to replace bread-boarding for final
+*     verification.
+* 2.  IMPORTANT NOTICE
+* 2.1 Infineon Technologies AG (“Infineon”) is not and cannot be aware of the specific application of the Infineon’s
+*     Model by User. However, Model may from time to time be used by User in potentially harmful and/or
+*     life-endangering applications such as traffic, logistic, medical, nuclear or military applications or in other
+*     applications where failure of the Model may predictably cause damage to persons’ life or health or to property
+*     (hereinafter "Critical Applications").
+* 2.2 User acknowledges that Infineon has not specifically designed or qualified the Model for Critical Applications
+*     that the Model may contain errors and bugs and that User is required to qualify the Model for Critical
+*     Applications pursuant to the applicable local quality, safety and legal requirements before permitting or giving
+*     access to any such use.
+* 3.  CONFIDENTIAL INFORMATION
+*     User shall treat ideas, concepts and information incorporated in the Model, the documentation and the content of
+*     this Terms of Use (together hereinafter "Confidential Information") confidential, not disclose it to any third
+*     party unless otherwise agreed in writing between User and Infineon, not use it for any other purposes than using
+*     the Model for simulation and testing purposes only.
+* 4.  WARRANTY
+* 4.1 User acknowledges that the Model is provided by Infineon under this Terms of Use is provided free of charge and
+*     "AS IS" without any warranty or liability of any kind and Infineon hereby expressly disclaims any warranties or
+*     representations, whether express, implied, statutory or otherwise, including but not limited to warranties of
+*     workmanship, merchantability, fitness for a particular purpose, defects in the Model, or non-infringement of
+*     third parties intellectual property rights.
+* 4.2 Infineon reserves the right to make corrections, deletions, modifications, enhancements, improvements and other
+*     changes to the Model at any time or to move or discontinue any Model without notice.
+* 5.  LIABILITY
+* 5.1 Nothing in this Terms of Use shall limit or exclude Infineon's liability under mandatory liability laws, for
+*     injuries to life, body or health, for fraudulent concealment of defects in the software, or in cases of
+*     Infineon's intentional misconduct or gross negligence.
+* 5.2 Without prejudice to Sections 5.1, in cases of Infineon's slight negligent breach of obligations that restrict
+*     essential rights or duties arising from the nature of this Terms of Use in a way that there is a risk of
+*     non-achievement of the purpose of this Terms of Use or of an obligation whose observance User regularly may
+*     trust in and whereas compliance with only makes proper execution of this Terms of Use possible, Infineon's
+*     liability shall be limited to the typically, foreseeable damage.
+* 5.3 Without prejudice to Sections 8.1 and 8.2, Infineon's liability under this Agreement shall be excluded in all
+*     other cases.
+* 6.  EXPORT REGULATIONS
+*     The User shall comply with all applicable national and international laws and regulations, in particular the
+*     applicable export control regulations and sanction programs. The User also agrees not to export, re-export or
+*     transfer any software or technology developed with or using information, software or technology offered by
+*     Infineon, in violation of any applicable laws or regulations of the competent authorities. Further, the User
+*     shall neither use any products, information, software and technology offered by Infineon in or in connection
+*     with nuclear technology or weapons of mass destruction (nuclear, biological or chemical) and carriers thereof
+*     nor supply military consignees.
+* 7.  TERMINATION OF USE PERMIT
+*     If the User violates these Terms of Use, such User’s permit to use this Model terminates automatically. In
+*     addition, Infineon may terminate the User’s permit to use this Model at its discretion and at any time
+*     regardless of any violation of these Terms of Use. In any of the foregoing events, the User is obliged to
+*     immediately destroy any content that has been downloaded or printed from Infineon’s website.
+* 8.  MISCELLANEOUS
+* 8.1 These Terms of Use are subject to the laws of the Federal Republic of Germany with the exception of the United
+*     Nations on Purchase Contracts on the International Sale of Goods dated April 11, 1980 (CISG). The exclusive
+*     place of jurisdiction is Munich, Germany.
+* 8.2 Should any provision in these Terms of Use be or become invalid, the validity of all other provisions or
+*     agreements shall remain unaffected thereby.
+* *********************************************************************************************************************
+*     SUPPORT : support@infineon.com
+* *********************************************************************************************************************
+* *********************************************************************************************************************
+.SUBCKT IMC120R030M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 30
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R030M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 30
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R030M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 30
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 30
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R030M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 30
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 30
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R030M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 30
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMC120R350M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 350
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R350M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 350
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R350M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 350
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 350
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R350M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 350
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 350
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R350M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 350
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMC120R220M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 220
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R220M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 220
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R220M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 220
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 220
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R220M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 220
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 220
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R220M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 220
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMC120R140M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 140
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R140M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 140
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R140M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 140
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 140
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R140M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 140
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 140
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMC120R090M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 90
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMW120R140M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 140
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R090M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 90
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R090M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 90
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 90
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R090M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 90
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 90
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R090M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 90
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMC120R060M1H DRAIN GATE SOURCE
+X$M1 DRAIN GATE SOURCE N1 TJ Z28 PARAMS: N8 = 60
+E1 TJ N3 VALUE = {TEMP}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R060M1H_L1 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 60
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT IMZ120R060M1H_L3 DRAIN GATE SOURCE SOURCESENSE TJ TCASE
+X$M2 N4 N4 GATE DRAIN SOURCE SOURCESENSE N5 N6 Z26
+X$M3 TJ TCASE Z25 PARAMS: N9 = 60
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 60
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R060M1H_L3 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M3 TJ TCASE Z25 PARAMS: N9 = 60
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 60
+G1 0 TJ VALUE = {IF(TIME > 0,LIMIT(V(N7,0),-1E6,1E6),0)}
+R2 TJ 0 1MEG
+.ENDS
+.SUBCKT IMW120R060M1H_L1 DRAIN GATE SOURCE TJ TCASE
+X$M4 N4 GATE DRAIN SOURCE N5 N6 Z27
+X$M1 N6 N5 N4 N7 TJ Z28 PARAMS: N8 = 60
+E1 TJ N3 VALUE = {V(TCASE,0)}
+R1 N3 0 1U
+.ENDS
+.SUBCKT Z25 TJ TCASE PARAMS: N9 = 100
+.PARAM N10 = {30.07/N9}
+R3 TJ N11 {1.595E-01/N10}
+R4 N11 N12 {2.165E-01/N10}
+R5 N12 N13 {1.315E-01/N10}
+R6 N13 TCASE {3.200E-03/N10}
+C1 TJ 0 {3.384E-03*N10}
+C2 N11 0 {8.522E-03*N10}
+C3 N12 0 {8.060E-02*N10}
+C4 N13 0 {1.561E+02*N10}
+.ENDS
+.SUBCKT Z26 N14 N15 N16 N17 N18 N19 N20 N21
+V1 N14 N22 DC 0.0
+V2 N15 N23 DC 0.0
+V3 N16 N24 DC 0.0
+V4 N17 N25 DC 0.0
+R7 N22 N26 0.000947421121512
+R8 N23 N27 0.0359558482959
+R9 N24 N28 0.0453262630241
+R10 N25 N29 0.000193358571071
+L1 N26 N18 3.02927867405E-09
+L2 N27 N19 5.82730949491E-09
+L3 N28 N20 1.24850911103E-08
+L4 N29 N21 3.05191161233E-09
+K1 L1 L2 0.415103
+K2 L1 L3 -0.276277
+K3 L1 L4 -0.354813
+K4 L2 L3 -0.353038
+K5 L2 L4 -0.214223
+K6 L3 L4 0.157979
+.ENDS Z26
+.SUBCKT Z27 N14 N15 N16 N17 N18 N19
+V1 N14 N20 DC 0.0
+V2 N15 N21 DC 0.0
+V3 N16 N22 DC 0.0
+R7 N20 N23 0.00104621039041
+R8 N21 N24 0.0366223573565
+R9 N22 N25 0.000135285865827
+L1 N23 N17 3.07095794984E-09
+L2 N24 N18 5.87397291269E-09
+L3 N25 N19 1.2951623973E-09
+K1 L1 L2 -0.148673
+K2 L1 L3 -0.392287
+K4 L2 L3 0.316053
+.ENDS Z27
+.SUBCKT Z28 N6 N5 N4 N7 TJ PARAMS: N8= 100
+.PARAM N30 = {30.07/N8}
+.PARAM N31 = {3.071/N30}
+.PARAM N32 = {0.88}
+.PARAM N33 = {1.1}
+.PARAM N34 = {0.0}
+.PARAM N35 = {0.92 * N30}
+.PARAM N36 = {1.5 * N30}
+.PARAM N37 = {1.073 * 1.072 * N30}
+.PARAM N38 = {1.05 * N30}
+.PARAM N39 = {1.2 * N30}
+X$M5 N40 N41 Z31 PARAMS: N42 = {N35} N43 = {N36}
+R11 N40 N41 10G
+R12 N6 N41 1m
+X$M6 N44 N45 Z29 PARAMS: N46 = {N38} N47 = {N39}
+R13 N44 N45 10G
+R14 N6 N44 1m
+X$M7 N40 N48 Z30 PARAMS: N49 = {N37}
+R15 N40 N48 10G
+R16 N48 N45 1m
+R17 N5 N40 {N31}
+X$M1 N6 N40 N45 TJ Z32 PARAMS: N50 = {N32} N51 = {N33} N52 = {N34} N53 = {N30}
+X$M8 N45 N6 N40 TJ Z33 PARAMS: N54 = {N30}
+V5 N45 N4 DC=0
+G2 0 N7 VALUE = {LIMIT( I(V5)*(V(N6,N4)) ,-100K,100K) }
+R18 0 N7 10
+.ENDS
+.SUBCKT Z29 N55 N56 PARAMS: N46 = 100 N47 = 100
+.PARAM N57 = {9.4949E-11 * N46}
++ N58 = {2.7221E-10 * N46}
++ N59 = {0.13319 * N46}
++ N60 = {4.3119E-10 * N46}
++ N61 = {7.911E-10 * N46 * N47}
++ N62 = {-0.0060469}
++ N63 = {-3.9065}
++ N64 = {-0.052826}
++ N65 = {-0.31977}
++ N66 = {10.0648}
++ N67 = {5.1466}
++ N68 = {3.1552}
++ N69 = {-2.4004E-16}
+.PARAM N70 = {N58 * EXP(N62 * N66)}
+.PARAM N71 = {N58 / (N62 * N70)}
+.PARAM N72 = {N59 * EXP(N63 * N67)}
+.PARAM N73 = {N59 / (N63 * N72)}
+.PARAM N74 = {N60 * EXP(N64 * N68)}
+.PARAM N75 = {N60 / (N64 * N74)}
+.PARAM N76 = {N61 * EXP(N65 * N69)}
+.PARAM N77 = {N61 / (N65 * N76)}
+C5 N55 N56 {N57}
+E2 N55 N78 VALUE {IF(V(N55,N56) > N66, V(N55,N56) - (N71*(EXP(N62*V(N55,N56)) - EXP(N62*N66)) + N66) ,0)}
+C6 N78 N56 {N70}
+E3 N55 N79 VALUE {IF(V(N55,N56) > N67, V(N55,N56) - (N73*(EXP(N63*V(N55,N56)) - EXP(N63*N67)) + N67) ,0)}
+C7 N79 N56 {N72}
+E4 N55 N80 VALUE {IF(V(N55,N56) > N68, V(N55,N56) - (N75*(EXP(N64*V(N55,N56)) - EXP(N64*N68)) + N68) ,0)}
+C8 N80 N56 {N74}
+E5 N55 N81 VALUE {IF(V(N55,N56) > 0, V(N55,N56) - (EXP(N65*V(N55,N56))-1)/N65 ,0)}
+C9 N81 N56 {N61}
+.ENDS
+.SUBCKT Z30 N82 N56 PARAMS: N49 = 100
+C10 N82 N56 {1827E-12 * N49}
+.ENDS
+.SUBCKT Z31 N82 N55 PARAMS: N42 = 100 N43 = 100
+.PARAM N83 = {1.4303E-11 * N42}
++ N84 = {4.9655E-06 * N42}
++ N85 = {4.4326E-11 * N42}
++ N86 = {4.5691E-05 * N42}
++ N87 = {2.7504E-11 * N42}
++ N88 = {2.5361E-10 * N42 * N43}
++ N89 = {-2.6836}
++ N90 = {-0.065837}
++ N91 = {-2.5938}
++ N92 = {-0.0070899}
++ N93 = {-0.48173}
++ N94 = {4.0892}
++ N95 = {9.3217}
++ N96 = {5.0346}
++ N97 = {9.3471}
++ N98 = {0.0}
+.PARAM N70 = {N84 * EXP(N89 * N94)}
+.PARAM N71 = {N84 / (N89 * N70)}
+.PARAM N72 = {N85 * EXP(N90 * N95)}
+.PARAM N73 = {N85 / (N90 * N72)}
+.PARAM N74 = {N86 * EXP(N91 * N96)}
+.PARAM N75 = {N86 / (N91 * N74)}
+.PARAM N76 = {N87 * EXP(N92 * N97)}
+.PARAM N77 = {N87 / (N92 * N76)}
+C5 N55 N82 {N83}
+E2 N55 N78 VALUE {IF(V(N55,N82) > N94, V(N55,N82) - (N71*(EXP(N89*V(N55,N82)) - EXP(N89*N94)) + N94) ,0)}
+C6 N78 N82 {N70}
+E3 N55 N79 VALUE {IF(V(N55,N82) > N95, V(N55,N82) - (N73*(EXP(N90*V(N55,N82)) - EXP(N90*N95)) + N95) ,0)}
+C7 N79 N82 {N72}
+E4 N55 N80 VALUE {IF(V(N55,N82) > N96, V(N55,N82) - (N75*(EXP(N91*V(N55,N82)) - EXP(N91*N96)) + N96) ,0)}
+C8 N80 N82 {N74}
+E5 N55 N81 VALUE {IF(V(N55,N82) > N97, V(N55,N82) - (N77*(EXP(N92*V(N55,N82)) - EXP(N92*N97)) + N97) ,0)}
+C9 N81 N82 {N76}
+E6 N55 N99 VALUE {IF(V(N55,N82) > 0, V(N55,N82) - (EXP(N93*V(N55,N82))-1)/N93 ,0)}
+C11 N99 N82 {N88}
+.ENDS
+.SUBCKT Z32 N6 N5 N4 TJ PARAMS: N50 = 100 N51 = 100 N52 = 100 N53 = 100
+.FUNC N100(N101,N102,N103) = {N104(N101,N102,N103)*((TANH((N102/(N104(N101,N102,N103)*N105(N101,N102,N103)))**(1/N106(N101,N103))))**N106(N101,N103))}
+.FUNC N107(N102) = {N108*N102}
+.PARAM N108 = {0.0018}
+.FUNC N109(N101,N102,N103) = {N103 - (N110(N101) + N52 + N111 - N107(N102))}
+.PARAM N111 = {0}
+.FUNC N112(N101,N102,N103) = {(N109(N101,N102,N103) + LN(2*COSH(N109(N101,N102,N103))))/2 + 0.0001}
+.FUNC N113(N101) = {N50 * N114 + N115 * (N101-25)}
+.PARAM N114 = {1}
++ N115 = {-8E-4}
+.FUNC N105(N101,N102,N103) = { (N113(N101)*(N116(N101) + 1/((N112(N101,N102,N103))**N117(N101)))) - 4E-3}
+.FUNC N110(N101) = {N118 + N119*N101}
+.PARAM N118 = {4.6513}
++ N119 = {-0.012752}
+.FUNC N116(N101) = {N120 + N121*N101 + N122*N101**2 + N123*N101**3}
+.PARAM N120 = {0.025348}
++ N121 = {-0.000181}
++ N122 = {2.5268E-06}
++ N123 = {0}
+.FUNC N117(N101) = {N124 + N125*N101 + N126*N101**2}
+.PARAM N124 = {2.0349}
++ N125 = {-0.008334}
++ N126 = {4.7926E-05}
+.FUNC N104(N101,N102,N103) = {N51*N127*(N128(N101)*N112(N101,N102,N103))**N129(N101,N103)}
+.FUNC N128(N101) = {(N130 - N131 * N101)}
+.PARAM N127 = {1}
++ N130 = {0.42536}
++ N131 = {7.789E-05}
+.FUNC N129(N101,N103) = {IF(N103 >0, N132 + N133*N101 + N134*N103, 1) }
+.PARAM N132 = {3.9591}
++ N133 = {-0.0016545}
++ N134 = {-0.052323}
+.FUNC N106(N101,N103) = {IF(N103 >0, N135(N101) + N136(N101) * N103, 1) }
+.FUNC N135(N101) = {N137 + N138*N101 + N139*N101**2}
+.PARAM N137 = {1.9696}
++ N138 = {-0.0063264}
++ N139 = {2.8301E-05}
+.FUNC N136(N101) = {N140 + N141*N101 + N142*N101**2}
+.PARAM N140 = {0.053064}
++ N141 = {0.00015372}
++ N142 = {-2.0501E-06}
+.FUNC N143(N102) = {N102**N144}
+.PARAM N144 = {0.076753}
+.FUNC N145(N101,N102,N103) = {N100(N101,N102,N103)*N143(N102) + EXP(0.25*(N102-1425.0)) }
+.PARAM N146 = {1}
+.FUNC N147(N101,N102,N103) = {N102/(N105(N101,N102,N103))}
+G3 N6 N4 VALUE = {N53 * N146 * IF(V(N6,N4) > 0.0,N145(V(TJ,0),V(N6,N4),V(N5,N4)), N147(V(TJ,0),V(N6,N4),V(N5,N4)))}
+.ENDS
+.SUBCKT Z33 N4 N6 N5 TJ PARAMS: N54 = 100
+.FUNC N148(N101, N102, N103) = { LIMIT( N102-0.5, -100.0, -N149(N101,N103)) }
+.FUNC N150(N103) = { N151 *( LIMIT(N103,-5,0) + N152 ) }
+.PARAM N151 = { 0.3}
++ N152 = { 25 }
+.FUNC N153(N101,N103) = { N154 + N155 * N101 + N156 * N150(N103) + N157 * N150(N103)**2 }
+.PARAM N154 = { 8.7663 }
++ N155 = { 0.001 }
++ N156 = { 0.00514 }
++ N157 = { 0.001 }
+.FUNC N149(N101,N103) = { N158 + N159 * N101 + N160 * N150(N103) + N161 * N150(N103)**2 + N162 * N150(N103)**3 }
+.PARAM N158 = { 5.057 }
++ N159 = { 0.0001 }
++ N160 = { -0.02558 }
++ N161 = { -0.0509 }
++ N162 = { 0.001 }
+.FUNC N163(N101,N103) = { N164 + N165 * N101 + N166 * N150(N103) }
+.PARAM N164 = { 1.6854 }
++ N165 = { 0.001 }
++ N166 = { 0.0066829 }
+.FUNC N167(N101, N102, N103) = { (- N153(N101,N103) * ( N168(N101, N102, N103) ) ** N163(N101,N103) ) }
+.FUNC N168(N101, N102, N103) = IF( -N148(N101, N102, N103) - N149(N101,N103) > 0, -N148(N101, N102, N103) - N149(N101,N103) , 0)
+G4 N6 N4 VALUE = { N54 * N167( V(TJ,0) , V(N6,N4), V(N5,N4) ) }
+.ENDS
